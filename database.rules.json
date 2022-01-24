@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "ai0": {
+      ".read": "auth.uid !== null",
+      ".write": true
+    },
+    "ai1": {
+      ".read": "auth.uid !== null",
+      ".write": true
+    },
+    "data": {
+      ".read": "auth.uid !== null",
+      ".write": "auth.uid !== null"
+    }
+  }
+}
