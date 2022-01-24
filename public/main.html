@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Data visualization using Firebase database and hosting</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- import firebase libraries and high chart library-->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/6.0.0/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <style> // styling of html components of page
+        * {
+            box-sizing: border-box;
+        }
+
+        h1 {
+            /*padding-top: 25px;
+            padding-bottom: 20px;*/
+            text-align: center;
+            font-size: 55px;
+            font-style: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: rgb(5, 14, 141);
+        }
+
+        h2 {
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: rgb(27, 2, 2);
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .button {
+            /*display: block;*/
+            /*margin: 0 20px;*/
+            border: none;
+            float: left;
+            box-shadow: 0 9px #999;
+            border-radius: 25px;
+            background-color: rgb(5, 14, 141);
+            padding: 10px;
+            text-align: left;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: rgb(43, 35, 77);
+        }
+
+        .button:active {
+            background-color: rgb(43, 35, 77);
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        /* Style the header */
+        header {
+            background-color: rgb(211, 201, 238);
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        div {
+            padding-right: 0px;
+            padding-left: 0px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        select {
+            width: 80%;
+            padding: 12px 20px;
+            margin: auto;  /*8px 0;*/
+            margin-top: 8px;
+            margin-bottom: 8px;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            text-align: left;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        option {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <!-- log out button-->
+            <button class="button" , onclick="mainApp.logOut()">Log out</button>
+            <h1>Data visualization page</h1>
+        </div>
+    </header>
+    <!-- set Firebase database reference-->
+    <script src="Firebase.js"></script> 
+    <!-- script to control login functionality-->
+    <script src="main.js"></script> 
+    <!-- read last values from firebase database and show them in line graphs-->
+    <script src="read.js"></script> 
+    <!-- select menu for AI0 channel-->
+    <div>
+        <select name="select_AI0" id="select_ai0">
+            <option value="selected">Select history measurement of channel AIO</option>
+        </select>
+    </div>
+    <!-- script to show selected entry in select menu from database-->
+    <script src="select_AI0.js"></script> 
+    <!-- graph for AI0 channel-->
+    <div id="chart-voltage-ai0" style="width: 100%;padding-bottom: 20px;padding-top: 20px;"></div>
+    <!-- select menu for AI1 channel-->
+    <div>
+        <select name="select_AI1" id="select_ai1">
+            <option value="selected">Select history measurement of channel AI1</option>
+        </select>
+    </div>
+    <!-- read database entries in select menus-->
+    <script src="select.js"></script> 
+    <!-- script to show selected entry in select menu from database-->
+    <script src="select_AI1.js"></script> 
+    <!-- graph for AI0 channel-->
+    <div id="chart-voltage-ai1" style="width: 100%;padding-bottom: 20px;padding-top: 20px;"></div>
+</body>
+
+</html>
