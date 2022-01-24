@@ -1,2 +1,2 @@
-# firebase_database_web_visualization
+# Firebase Database web visualization
 Data visualization from Matlab using Firebase Realtime Database and Hosting. 
